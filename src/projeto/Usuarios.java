@@ -9,7 +9,7 @@ public final class Usuarios {
 	private List<Usuario> usuarios;
 	
 	public Usuarios() {
-		this.usuarios = new ArrayList();
+		this.usuarios = new ArrayList<>();
 	}
 	
 	public Usuario adicionarUsuarios(String nome, String matricula, String senha, String tipo) {
