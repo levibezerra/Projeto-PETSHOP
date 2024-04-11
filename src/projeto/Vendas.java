@@ -17,6 +17,24 @@ public final class Vendas {
 		Venda venda = new Venda(valor, formaDePagamento, matricula);
 		vendas.add(venda);
 	}
+	
+	public void relatorioDeVendasGeral() {
+		System.out.println("N°  |  MATRICULA  | VALOR  | FORMA DE PAGAMENTO");
+		for(int i = 0; i < vendas.size(); i++) {
+			Venda venda = vendas.get(i);
+			System.out.println((i + 1) + "-" + venda.getMatricula() + " " + venda.getValor() + " " + venda.getFormaDePagamento());
+		}
+	}
+	
+	public void relatorioDeVendasIndividual(String matricula) {
+		System.out.println("N°  |  MATRICULA  | VALOR  | FORMA DE PAGAMENTO");
+		for(int i = 0; i < vendas.size(); i++) {
+			Venda venda = vendas.get(i);
+			if(vendas.get(i).getMatricula().equals(matricula)) {
+				System.out.println((i + 1) + "-" + venda.getMatricula() + " " + venda.getValor() + " " + venda.getFormaDePagamento());
+			}
+		}
+	}
 
 	public List<Venda> getVendas() {
 		return vendas;
