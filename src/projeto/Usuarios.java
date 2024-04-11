@@ -28,6 +28,17 @@ public final class Usuarios {
 		return -1; 
 	}
 	
+	public Usuario verificarCredenciais(String matricula, String senha) {
+		for(int i = 0; i < usuarios.size(); i++) {
+			if(usuarios.get(i).getMatricula().equals(matricula)) {
+				if(usuarios.get(i).getSenha().equals(senha)) {
+					return usuarios.get(i);
+				}
+			}
+		}
+		return null;
+	}
+	
 	public void removerUsuario(String matricula) {
 		int indice = this.encontarUsuario(matricula);
 		if(indice != -1) {
@@ -48,4 +59,4 @@ public final class Usuarios {
 		}
 		return instance; 
 	}
-}
+} 
