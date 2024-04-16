@@ -6,11 +6,12 @@ import java.util.List;
 public final class Vendas {
 	
 	private static Vendas instance;
-	
+	 
 	List<Venda> vendas;
 	
 	public Vendas() {
 		this.vendas = new ArrayList<>();
+		realizarVendas(230.0, "Credito", "man123");
 	}
 	
 	public void realizarVendas(double valor, String formaDePagamento, String matricula) {
@@ -18,20 +19,20 @@ public final class Vendas {
 		vendas.add(venda);
 	}
 	
-	public void relatorioDeVendasGeral() {
-		System.out.println("N°  |  MATRICULA  | VALOR  | FORMA DE PAGAMENTO");
-		for(int i = 0; i < vendas.size(); i++) {
+	public void gerarRelatorio() {
+		System.out.println("  N  |   MATRICULA  | VALOR  | FORMA DE PAGAMENTO");
+		for(int i = 0; i < this.vendas.size(); i++) {
 			Venda venda = vendas.get(i);
-			System.out.println((i + 1) + "-" + venda.getMatricula() + " " + venda.getValor() + " " + venda.getFormaDePagamento());
+			System.out.println("  " + (i + 1) + "-" + "     " +  venda.getMatricula() + "            " + venda.getValor() + "      " + venda.getFormaDePagamento());
 		}
 	}
 	
 	public void relatorioDeVendasIndividual(String matricula) {
-		System.out.println("N°  |  MATRICULA  | VALOR  | FORMA DE PAGAMENTO");
-		for(int i = 0; i < vendas.size(); i++) {
+		System.out.println("  N  |   MATRICULA   |  VALOR  | FORMA DE PAGAMENTO");
+		for(int i = 0; i < this.vendas.size(); i++) {
 			Venda venda = vendas.get(i);
 			if(vendas.get(i).getMatricula().equals(matricula)) {
-				System.out.println((i + 1) + "-" + venda.getMatricula() + " " + venda.getValor() + " " + venda.getFormaDePagamento());
+				System.out.println("  " + (i + 1) + "-" + "     " +  venda.getMatricula() + "            " + venda.getValor() + "      " + venda.getFormaDePagamento());
 			}
 		}
 	}

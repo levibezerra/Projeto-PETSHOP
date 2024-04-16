@@ -1,6 +1,6 @@
 package projeto;
 
-public class Vendedor extends Usuario{
+public class Vendedor extends Usuario implements IUsuario{
 	
 	public static Vendas vendas = Vendas.getInstance();
 	
@@ -11,9 +11,10 @@ public class Vendedor extends Usuario{
 	public void realizarVendas(double valor, String formaDePagamento, String matricula) {
 		vendas.realizarVendas(valor, formaDePagamento, matricula);
 	}
-	
-	public void gerarRelatorios() {
-		vendas.relatorioDeVendasIndividual(getMatricula());
-		
+
+	@Override 
+	public void gerarRelatorio() {
+		vendas.relatorioDeVendasIndividual(this.getMatricula());
+		 
 	}
 }

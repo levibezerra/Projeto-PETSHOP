@@ -13,10 +13,16 @@ public final class Usuarios {
 	}
 	
 	public Usuario adicionarUsuarios(String nome, String matricula, String senha, String tipo) {
-		Usuario usuario = new Usuario(nome, matricula, senha, tipo);
+		Usuario usuario;
+		if(tipo.equals("Gerente")) {
+			usuario = new Gerente(nome, matricula, senha);
+			System.out.println("Gerente cadastrado com sucesso!");
+		}else {
+			usuario = new Vendedor(nome, matricula, senha);
+			System.out.println("Vendedor cadastrado com sucesso!");
+		}
 		usuarios.add(usuario);
-		System.out.println("Usuario cadastrado com sucesso!");
-		return usuario; 
+		return usuario;
 	}
 	
 	public int encontarUsuario(String matricula) {
@@ -50,7 +56,7 @@ public final class Usuarios {
 	}
 	
 	public List<Usuario> getUsuarios() {
-		return this.usuarios; 
+		return usuarios; 
 	}
 	
 	public static Usuarios getInstance() {

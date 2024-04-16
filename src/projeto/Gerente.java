@@ -1,6 +1,6 @@
 package projeto;
 
-public class Gerente extends Usuario{
+public class Gerente extends Usuario implements IUsuario{
 	
 	public static Vendas vendas = Vendas.getInstance();
 	
@@ -8,6 +8,7 @@ public class Gerente extends Usuario{
 	
 	public Gerente(String nome, String matricula, String senha) {
 		super(nome, matricula, senha, "Gerente");
+		this.usuario = Usuarios.getInstance();
 	}
 	
 	public void adicionarVendedor(String nome, String matricula, String senha) {
@@ -18,11 +19,7 @@ public class Gerente extends Usuario{
 		usuario.removerUsuario(matricula);
 	}
 	
-	public void gerarRelatorio() {
-		vendas.relatorioDeVendasGeral();
-	}
-	
-	public void gerarRelatorioIndividual() {
-		vendas.relatorioDeVendasIndividual(getMatricula());
+	public void gerarRelatorioIndividual(String matricula) {
+		vendas.relatorioDeVendasIndividual(matricula); 
 	}
 }
